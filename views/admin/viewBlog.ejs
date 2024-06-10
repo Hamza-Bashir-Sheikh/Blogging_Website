@@ -85,18 +85,20 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% let i=1;
+                  data.forEach(function(items){%>
                   <tr>
-                    <td>1</td>
-                    <td>Unity Pugh</td>
-                    <td>9958</td>
-                    <td>Curicó</td>
-                    <td>2005/02/11</td>
-                    <td>37%</td>
+                    <td><%= i %></td>
+                    <td><%= items.title %></td>
+                    <td><%= items.description %></td>
+                    <td><%= items.keywords %></td>
+                    <td><img src="<%= items.image %>" alt=""></td>
+                    <td><%= items.category %></td>
                     <td><i class="bi bi-trash3" style="color: red;"></i></td>
-                      <td><i class="bi bi-pencil-square" style="color: green;"></i></td>
-                   
+                    <td><i class="bi bi-pencil-square" style="color: green;"></i></td>
                   </tr>
-                  
+                  <% i++;
+                  }); %>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

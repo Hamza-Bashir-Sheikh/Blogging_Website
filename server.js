@@ -158,8 +158,14 @@ app.get("/addblog",async (req, res) => {
 
 });
 
-app.get("/viewblog", (req, res) => {
-  res.render("admin/viewblog.ejs");
+app.get("/viewblog",async (req, res) => {
+  try{
+    const fetch=await postModel.find();
+    res.render("admin/viewBlog.ejs",{data: fetch});
+  }catch(error){
+    res.send(error);
+  }
+  // res.render("admin/viewblog.ejs");
 });
 
 app.get("/adduser", (req, res) => {
